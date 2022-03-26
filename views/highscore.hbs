@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th width="200">User</th>
+      <th>TOP 10 SCORES</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each highscores as |hs| }}
+    <tr>
+      <td> {{hs.User.username}} </td>
+      <td> {{hs.score}} </td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
+<style>
+  body {
+    background-image: url('/assets/cloudbackground.jpg');
+    background-size: cover;
+  }
+</style>
