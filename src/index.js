@@ -12,6 +12,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<App />} >
+        <Route path='/' element={<Type />} />
         <Route path='type' element={<Type />} />
         <Route path='login' element={<Login />} />
         <Route path='highscore' element={<Highscore />} />

@@ -9,8 +9,8 @@ const Navigation = () => {
         <>
             <nav className='w-2/3 hidden md:flex justify-between mx-auto my-10'>
 
-                <h1>{`Type{Scripts} 2.0`}</h1>
 
+                <Link className='mx-1' to="/">{`Type{Scripts} 2.0`}</Link>
                 <div className='flex mx-4' id="navLinks">
                     <Link className='mx-1' to="/type">Type!</Link>
                     <Link className='mx-1' to="/highscore">Highscores</Link>
