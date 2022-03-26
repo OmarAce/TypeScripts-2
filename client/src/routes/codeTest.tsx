@@ -1,18 +1,33 @@
-import { FC, useState } from "react";
+import { useState, useEffect } from "react";
 import useTypingGame, {
     CharStateType,
     PhaseType
 } from "react-typing-game-hook";
 import "./styles.css";
 import Results from './results'
+import axios from 'axios'
+
 let Color = require('color');
 
-const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
 
-
+const TypingGameCode = () => {
+    const [val, setVal] = useState(null)
 
     const [wordCount, setWordCount] = useState(0)
-    // let text = "The quick brown fox jumps over the lazy dog";
+    let text = "The quick brown fox jumps over the lazy dog";
+
+    //fetch data
+    const getPrompt = async () => {
+        const response = await axios('/prompts/typescript')
+        setVal(response.data.prompt)
+        console.log(val)
+    }
+
+    useEffect(() => {
+        getPrompt()
+    }, [])
+
+
     const countWords = (str) => {
         const spaceArray = str.split('').filter(a => a === ' ')
         setWordCount(spaceArray.length + 1)
@@ -34,7 +49,7 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
 
         },
         actions: { insertTyping, resetTyping, deleteTyping, getDuration }
-    } = useTypingGame(text, {
+    } = useTypingGame(val, {
         skipCurrentWordOnSpace: true,
         pauseOnError: false,
         countErrors: 'everytime',
@@ -71,7 +86,7 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
                 }}
                 tabIndex={0}
             >
-                {text.split("").map((char: string, index: number) => {
+                {val.split("").map((char: string, index: number) => {
                     let state = charsState[index];
                     let color =
                         state === CharStateType.Incomplete
@@ -113,5 +128,5 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
     );
 };
 
-export default TypingGameDemo;
+export default TypingGameCode;
 

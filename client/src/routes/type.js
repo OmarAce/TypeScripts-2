@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import Test from './test'
 import Test2 from './test2.tsx'
-
 const Type = () => {
     const language = ['JavaScript', 'TypeScript', 'CSS', 'HTML', 'English']
     // const prompts = {
@@ -21,31 +20,31 @@ const Type = () => {
     }
     const changeStage = (e) => {
 
-        const userLang = e.target.innerText
-                
-                let languageSearch = "http://localhost:3001/prompts/"+userLang;
+        const userLang = e.target.innerText.toLowerCase()
 
-                fetch(languageSearch, {})
-                    .then((response) => {
-                        response.json().then((data) => {
-                            console.log(data);
-                            return data;
-                        }).then((data) => {
-                            let text = data.prompt
-                            console.log(text)
+        let languageSearch = "/prompts/" + userLang;
 
-                            setStage(() => {
-                                return (
-                                    <>
-                                        <button onClick={() => setStage(home)} className='border-4 '>Back</button>
-                                        {/* <Test /> */}
-                                        <Test2 text={`${text}`} />
-                                    </>
-                                )
-                            })
+        fetch(languageSearch, {})
+            .then((response) => {
+                response.json().then((data) => {
+                    console.log(data);
+                    return data;
+                }).then((data) => {
+                    let text = data.prompt
+                    console.log(text)
 
-                        })
+                    setStage(() => {
+                        return (
+                            <>
+                                <button onClick={() => setStage(home)} className='border-4 '>Back</button>
+                                {/* <Test /> */}
+                                <Test2 text={`${text}`} />
+                            </>
+                        )
                     })
+
+                })
+            })
 
 
     }

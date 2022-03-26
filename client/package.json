@@ -7,6 +7,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "@types/color": "^3.0.3",
+    "axios": "^0.26.1",
     "color": "^4.2.1",
     "hamburger-react": "^2.4.1",
     "random-words": "^1.1.2",
@@ -23,6 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": [
       "react-app",

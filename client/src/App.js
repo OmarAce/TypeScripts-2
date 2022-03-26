@@ -1,7 +1,7 @@
 import './App.css';
 import { Outlet } from 'react-router-dom'
 import Navbar from './components/navigation'
-import Type from './routes/type'
+// import Type from './routes/type'
 function App() {
   return (
     <div className="">
