@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import useTypingGame, {
     CharStateType,
     PhaseType
@@ -7,10 +7,10 @@ import "./styles.css";
 import Results from './results'
 let Color = require('color');
 
-const TypingGameDemo = () => {
+const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
 
     const [wordCount, setWordCount] = useState(0)
-    let text = "The quick brown fox jumps over the lazy dog";
+    // let text = "The quick brown fox jumps over the lazy dog";
     const countWords = (str) => {
         const spaceArray = str.split('').filter(a => a === ' ')
         setWordCount(spaceArray.length + 1)
