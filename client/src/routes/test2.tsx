@@ -9,6 +9,8 @@ let Color = require('color');
 
 const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
 
+
+
     const [wordCount, setWordCount] = useState(0)
     // let text = "The quick brown fox jumps over the lazy dog";
     const countWords = (str) => {
