@@ -60,11 +60,12 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
     };
 
     return (
-        <div className="h-full  max-w-screen">
-            <h1>React Typing Game Hook Demo</h1>
-            <p>Click on the text below and start typing (esc to reset)</p>
+        <div className="h-full  max-w-screen flex items-center" >
+            {/* <h1>React Typing Game Hook Demo</h1>
+            <p>Click on the text below and start typing (esc to reset)</p> */}
             <div
-                className="typing-test"
+                className="typing-test "
+
                 onKeyDown={(e) => {
                     handleKey(e.key);
                     e.preventDefault();
@@ -75,22 +76,22 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
                     let state = charsState[index];
                     let color =
                         state === CharStateType.Incomplete
-                            ? Color('#000000').alpha(0.65)
+                            ? Color('#FFFFFF').alpha(0.65)
                             : state === CharStateType.Correct
-                                ? Color('#000000')
+                                ? Color('#FFFFFF')
                                 : "red";
                     return (
                         <span
                             key={char + index}
                             style={{ color }}
-                            className={currIndex + 1 === index ? "curr-letter" : ""}
+                            className={`${currIndex + 1 === index ? "curr-letter" : ""}  text-xl lg:text-2xl`}
                         >
                             {char}
                         </span>
                     );
                 })}
             </div>
-            <pre>
+            {/* <pre>
                 {JSON.stringify(
                     {
                         startTime,
@@ -105,7 +106,7 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
                     null,
                     2
                 )}
-            </pre>
+            </pre> */}
             {/* {PhaseType[phase] === 'Ended' && (<Results speed={Math.round((length) / (endTime - startTime) * 1000 * 60)} accuracy={Math.round((correctChar / (correctChar + errorChar)) * 100)} />)} */}
             <Results speedClass={PhaseType[phase] === 'Ended' ? 'flex' : 'hidden'} wordsTyped={Math.round(wordCount / (getDuration()) * 1000 * 60)} accClass={PhaseType[phase] !== 'NotStarted' ? 'flex' : 'hidden'} speed={Math.round((currIndex + 1) / (getDuration()) * 1000 * 60)} accuracy={Math.round((correctChar / (correctChar + errorChar)) * 100)} errors={errorChar} />
             {/* {console.log(length, endTime - startTime)} */}
