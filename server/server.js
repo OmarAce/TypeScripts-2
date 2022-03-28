@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 3001;
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'hbs');
-// app.engine('hbs', hbs.engine({extname:'hbs', defaultLayout: 'layout/main', layoutsDir:__dirname +'/views/'}));
+// app.engine('hbs', hbs.engine({ extname: 'hbs', defaultLayout: 'layout/main', layoutsDir: __dirname + '/views/' }));
 
 const sess = {
   secret: 'super-secret',
@@ -52,11 +52,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/prompts', promptsRouter);
 
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+
 // sync sequelize models to the database, then turn on the server
 seq.sync({ force: false }).then(() => {
   app.listen(PORT, () => {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Axios from 'axios'
+
 const Login = () => {
     const [usernameReg, setUsernameReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("");
@@ -7,8 +8,9 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const [loginStatus, setLoginStatus] = useState("");
+    const [loginStatus, setLoginStatus] = useState("sd");
 
+    const [user, setUser] = useState('returning')
     Axios.defaults.withCredentials = true;
 
     const register = () => {
@@ -17,6 +19,8 @@ const Login = () => {
             password: passwordReg,
         }).then((response) => {
             console.log(response);
+            setUser('returning')
+
         });
     };
 
@@ -31,17 +35,20 @@ const Login = () => {
                 setLoginStatus(response.data[0].username);
             }
         });
+        console.log(loginStatus)
     };
 
     // useEffect(() => {
-    //     Axios.get("users/login").then((response) => {
-    //         if (response.data.loggedIn == true) {
-    //             setLoginStatus(response.data.user[0].username);
-    //         }
-    //     });
+    //     const getUserData = async () => {
+    //         Axios.get(`users/login?username=${username}&password=${password}`).then((response) => {
+    //             if (response.data.loggedIn == true) {
+    //                 setLoginStatus(response.data.user[0].username);
+    //             }
+    //         });
+    //     }
+
     // }, []);
 
-    const [user, setUser] = useState('returning')
 
 
     return (
@@ -64,6 +71,7 @@ const Login = () => {
                         </label>
                         <input type="button" value="Sign Up" className='text-blue-500' onClick={() => setUser('new')} />
                     </form>
+                    <h1>{loginStatus}</h1>
                 </div>
 
 
