@@ -50,6 +50,7 @@ router.post("/highscores", async function (req, res) {
   //save HS in db here....
   const score = await Scores.create({ user_id: req.session.userId, score: Number(req.body.score) })
   //return some feedback to ajax on FE that made the call
+  res.status(200).json({ message: 'Score Submitted!'})
 })
 
 // Export

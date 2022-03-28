@@ -17,14 +17,19 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const promptsRouter = require('./routes/prompts');
 
+const corsOptions ={
+  origin:'http://localhost:3000', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'hbs');
-// app.engine('hbs', hbs.engine({ extname: 'hbs', defaultLayout: 'layout/main', layoutsDir: __dirname + '/views/' }));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+app.engine('hbs', hbs.engine({ extname: 'hbs', defaultLayout: 'layout/main', layoutsDir: __dirname + '/views/' }));
 
 const sess = {
   secret: 'super-secret',
@@ -44,9 +49,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors({
-  origin: '*'
-}));
+app.use(cors(corsOptions));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
