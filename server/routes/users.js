@@ -64,7 +64,7 @@ router.post('/login', async function (req, res) {
     req.session.loggedIn = true
 
     req.session.save(() => {
-      res.status(200).json({ message: 'You are logged in!' })
+      res.status(200).json({ message: 'You are logged in!', userId: `${userDataClean.id}` })
     })
   } catch (err) {
     console.log(err)
