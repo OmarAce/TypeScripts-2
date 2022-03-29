@@ -3,6 +3,7 @@ import useTypingGame, {
     CharStateType,
     PhaseType
 } from "react-typing-game-hook";
+import Type from './type'
 import "./styles.css";
 import Results from './results'
 let Color = require('color');
@@ -60,11 +61,12 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
     };
 
     return (
-        <div className="h-full  max-w-screen flex items-center" >
-            {/* <h1>React Typing Game Hook Demo</h1>
-            <p>Click on the text below and start typing (esc to reset)</p> */}
+        <div className="max-w-screen   " >
+            {/* {/* <h1>React Typing Game Hook Demo</h1> */}
+            <p className=" my-6 md:mt-20">Click on the text below and start typing </p>
+
             <div
-                className="typing-test "
+                className="typing-test mb-12"
 
                 onKeyDown={(e) => {
                     handleKey(e.key);

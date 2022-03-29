@@ -11,9 +11,9 @@ const Type = () => {
     const home = () => {
         return (
             <>
-                < h1 className='mb-6 mt-2 text-3xl md:text-4xl' > Select your Language</h1>
-                <div className="flex flex-col  md:flex-row md:justify-center  justify-center  md:flex-wrap w-full">{language.map(n => {
-                    return <button onClick={changeStage} className="border px-8 py-1 text-center m-2 bg-white  md:w-full text-pink-500 rounded  md:basis-1/4 lg:basis-36 ">{n}</button>
+                <h1 className=' my-10 md:mt-20 md:mb-24  text-3xl md:text-4xl' > Select your Language</h1>
+                <div className="flex flex-col  md:flex-row md:justify-center  justify-center  md:flex-wrap w-full ">{language.map(n => {
+                    return <button onClick={changeStage} className="border px-8 py-1 text-center m-2 bg-indigo-500  md:w-full text-white rounded  transition ease-in-out   hover:-translate-y-1 hover:scale-110 hover:bg-pink-500 hover:text-white duration-300 md:basis-1/4 lg:basis-36 ">{n}</button>
                 })}</div>
             </>
         )
@@ -36,8 +36,8 @@ const Type = () => {
                     setStage(() => {
                         return (
                             <>
-                                <Test2 text={`${text}`} />
-                                <button onClick={() => setStage(home)} className='border-4 '>Back</button>
+                                <button onClick={() => setStage(home)} className="border px-8 py-1 mt-16 text-center m-2 bg-indigo-500  md:w-1/8 text-white rounded  transition ease-in-out   hover:-translate-y-1 hover:scale-110 hover:bg-pink-500 hover:text-white duration-300">Back</button>
+                                <Test2 className='min-h-screen' text={`${text}`} />
 
                                 {/* <Test /> */}
                             </>
@@ -54,13 +54,11 @@ const Type = () => {
 
     return (
 
-        <div className='grid h-screen grid-rows-6 gap-4'>
-            <div id="prompt" className=" row-span-3 text-center   flex flex-col justify-center items-center">
+        <div className='grid  grid-rows-6 gap-4 '>
+            <div id="prompt" className=" row-span-3 text-center flex flex-col justify-center items-center ">
                 {stage}
             </div>
-
-
-        </div>
+        </div >
     )
 }
 
