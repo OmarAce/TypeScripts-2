@@ -2,7 +2,7 @@ import React from 'react'
 
 const HighScore = () => {
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-12">
             <table className="border">
                 <tr className="border-4">
                     <th className="border-x">User Name</th>
