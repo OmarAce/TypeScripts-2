@@ -63,8 +63,8 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
         <div className="h-full  max-w-screen flex items-center" >
             {/* <h1>React Typing Game Hook Demo</h1>
             <p>Click on the text below and start typing (esc to reset)</p> */}
-            <div
-                className="typing-test "
+            <pre
+                className="typing-test flex"
 
                 onKeyDown={(e) => {
                     handleKey(e.key);
@@ -90,7 +90,7 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
                         </span>
                     );
                 })}
-            </div>
+            </pre>
             {/* <pre>
                 {JSON.stringify(
                     {

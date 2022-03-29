@@ -1,23 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import Table from '../components/table'
 
 const HighScore = () => {
-    return (
-        <div className="flex justify-center">
-            <table className="border">
-                <tr className="border-4">
-                    <th className="border-x">User Name</th>
-                    <th className="border-x">Words Per Minute</th>
-                    <th className="border-x">Date</th>
-                </tr>
-                <tr >
+    const [highscores, setHighscores] = useState([])
 
-                    <td className="border-x">{'kam'}</td>
-                    <td className="border-x">{100} wpm</td>
-                    <td className="border-x">{'todays date'} </td>
-                </tr>
-                <td></td>
-                <tr></tr>
-            </table>
+    const getScores = () => {
+    axios.get('http://localhost:3001/api/highscores', {})
+        .then((response) => {
+                console.log(response.data)
+                let scores = response.data
+                return scores
+        }).then((scores) =>{
+            setHighscores(scores)
+        })
+    }
+
+    React.useEffect(() => getScores(), []);
+
+    const column = [
+        { heading: 'Username', value: 'User.username' },
+        { heading: 'Score', value: 'score' },
+      ]
+    
+
+    return (
+        <div className="App">
+        <Table data={highscores} column={column} />
         </div>
     )
 }

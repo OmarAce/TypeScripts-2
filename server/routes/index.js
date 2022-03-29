@@ -37,6 +37,7 @@ router.get('/highscores', async function (req, res, next) {
 router.get('/api/highscores', async function (req, res) {
   const scores = await Scores.findAll({
     order: [["score", "DESC"]],
+    include: [{ model: User }],
     limit: 10,
   }).then(function (highscores) {
     res.json(highscores)
