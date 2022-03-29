@@ -1,7 +1,34 @@
-import React from 'react'
 
+import Axios from 'axios'
 const Results = (props) => {
+    const score = props.speed * (props.accuracy / 100) * 10
 
+
+    //only at end of game
+
+    // props.phase === 'Ended' && {
+
+    //     //post route to highscores
+    //     const scorePost = async () => {
+    //         await Axios.post("http://localhost:3001/highscores", {
+    //             score: score,
+    //         }).then()
+    //     }
+
+    // }
+    let userId = sessionStorage.getItem("userId")
+    console.log(userId)
+    if (props.phase === 'Ended' && userId) {
+        Axios.post("http://localhost:3001/highscores", {
+            score: score,
+        }).then((response) => {
+            console.log(response, 'score posted')
+            if (response.status === 200) {
+
+            }
+        })
+        console.log(props)
+    }
     return (
         <>
             <div className=" md:grid grid-cols-2 ">

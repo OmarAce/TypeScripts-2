@@ -107,8 +107,11 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
                     2
                 )}
             </pre> */}
-            {/* {PhaseType[phase] === 'Ended' && (<Results speed={Math.round((length) / (endTime - startTime) * 1000 * 60)} accuracy={Math.round((correctChar / (correctChar + errorChar)) * 100)} />)} */}
-            <Results speedClass={PhaseType[phase] === 'Ended' ? 'flex' : 'hidden'} wordsTyped={Math.round(wordCount / (getDuration()) * 1000 * 60)} accClass={PhaseType[phase] !== 'NotStarted' ? 'flex' : 'hidden'} speed={Math.round((currIndex + 1) / (getDuration()) * 1000 * 60)} accuracy={Math.round((correctChar / (correctChar + errorChar)) * 100)} errors={errorChar} />
+
+            {PhaseType[phase] === 'Ended' && (
+
+                <Results phase={PhaseType[phase]} speedClass={PhaseType[phase] === 'Ended' ? 'flex' : 'hidden'} wordsTyped={Math.round(wordCount / (getDuration()) * 1000 * 60)} accClass={PhaseType[phase] !== 'NotStarted' ? 'flex' : 'hidden'} speed={Math.round((currIndex + 1) / (getDuration()) * 1000 * 60)} accuracy={Math.round((correctChar / (correctChar + errorChar)) * 100)} errors={errorChar} />
+            )}
             {/* {console.log(length, endTime - startTime)} */}
         </div>
     );
