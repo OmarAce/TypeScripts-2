@@ -2,7 +2,7 @@ const { Prompt } = require('../models');
 
 const promptData = [
     {
-        prompt: "const helloWorld = 'Hello World';\nlet hiWorld = 'Hi World';\n\nallowsAnyString(helloWorld);\nallowsAnyString(hiWorld);",
+        prompt: "// Declare a variable called person with a specific object type annotation\nlet person: {\n name: string;\nlocation: string;\nisProgrammer: boolean;\n};\n\n// Assign person to an object with all the necessary properties and value types\nperson = {\nname: 'Danny',\nlocation: 'UK',\nisProgrammer: true,\n};\n\nperson.isProgrammer = 'Yes'; // ERROR: should be a boolean\n\nperson = {\nname: 'John',\nlocation: 'US',\n}; // ERROR: missing the isProgrammer property",
         language_id: 1, //typescript
     },
     {
@@ -10,12 +10,12 @@ const promptData = [
         language_id: 1,
     },
     {
-        prompt: "<button type='button' onclick='document.getElementById('demo').innerHTML = Date()'>Click me to display Date and Time.</button>",
+        prompt: `//input from the user\nconst min = parseInt(prompt("Enter a min value: "));\nconst max = parseInt(prompt("Enter a max value: "));\n\n// generating a random number\nconst a = Math.floor(Math.random() * (max - min + 1)) + min;\n\n// display a random number\nconsole.log('Random value between '+min+' and '+max+' is '+a);\n //Example Output\n Enter a min value: 1\nEnter a max value: 50\nRandom value between 1 and 50 is 47`,
         language_id: 2, //javascript
     },
     {
-        prompt: "<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>\n<button onclick=`document.getElementById('myImage').src='pic_bulbon.gif'`>Turn on the light</button>\n<img id='myImage' src='pic_bulboff.gif' style='width:100px'>\n<button onclick=`document.getElementById('myImage').src='pic_bulboff.gif'`>Turn off the light</button>",
-        language_id: 2,
+        prompt: `// The following variables are defined in the global scope\nvar num1 = 20,\nnum2 = 3,\nname = 'John';\n// This function is defined in the global scope\nfunction multiply() {\nreturn num1 * num2;\n}\nmultiply(); // Returns 60\n// A nested function example\nfunction getScore() {\nvar num1 = 2,\nnum2 = 3;\nfunction add() {\nreturn name + ' scored ' + (num1 + num2);\n}\nreturn add();\n}\ngetScore(); // Returns "John scored 5"\n`,
+        language_id: 2, 
     },
     {
         prompt: "<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n<h1>This is a Heading</h1>\n<p>This is a paragraph.</p>\n</body>\n</html>",
@@ -34,20 +34,20 @@ const promptData = [
         language_id: 4,
     },
     {
-        prompt: "She asked the question even though she didn't really want to hear the answer. It was a no-win situation since she already knew. If he told the truth, she'd get confirmation of her worst fears. If he lied, she'd know that he wasn't who she thought he was which would be almost as bad. Yet she asked the question anyway and waited for his answer. It was cloudy outside but not really raining. There was a light sprinkle at most and there certainly wasn't a need for an umbrella.",
+        prompt: "How many programmers does it take to change a light bulb? None, that's a hardware problem.",
         language_id: 5, //english
     },
     {
-        prompt: "This hadn't stopped Sarah from pulling her umbrella out and opening it. It had nothing to do with the weather or the potential rain later that day. Sarah used the umbrella to hide. Then came the night of the first falling star. It was seen early in the morning, rushing over Winchester eastward, a line of flame high in the atmosphere. Hundreds must have seen it and taken it for an ordinary falling star. It seemed that it fell to earth about one hundred miles east of him.",
-        language_id: 5,
+        prompt: "Always code as if the person who ends up maintaining your code will be a violent psychopath who knows where you live.",
+        language_id: 5, 
     },
     {
-        prompt: "They say you only come to peace with yourself when you know yourself better than those around you. Derick knew nothing about this. He thought he had found peace but this was an illusion as he was about to find out with an unexpected occurrence that he actually knew nothing about himself. Debbie put her hand into the hole, sliding her hand down as far as her arm could reach. She wiggled her fingers hoping to touch something, but all she felt was air.",
-        language_id: 5,
+        prompt: "Software and cathedrals are much the same — first we build them, then we pray.",
+        language_id: 5, 
     },
     {
-        prompt: "She shifted the weight of her body to try and reach an inch or two more down the hole. Her fingers still touched nothing but air. MaryLou wore the tiara with pride. There was something that made doing anything she didn't really want to do a bit easier when she wore it. She really didn't care what those staring through the window were thinking as she vacuumed her apartment.",
-        language_id: 5,
+        prompt: "It's not a bug... it's an undocumented feature.",
+        language_id: 5, 
     },
 ];
 

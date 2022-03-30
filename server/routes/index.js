@@ -37,6 +37,7 @@ router.get('/highscores', async function (req, res, next) {
 router.get('/api/highscores', async function (req, res) {
   const scores = await Scores.findAll({
     order: [["score", "DESC"]],
+    include: [{ model: User }],
     limit: 10,
   }).then(function (highscores) {
     res.json(highscores)
@@ -46,6 +47,9 @@ router.get('/api/highscores', async function (req, res) {
 // Method to Write to Highscores
 router.post("/highscores", async function (req, res) {
   console.log("YOUR SESSION", req.session);
+  if (!req.session.userId) {
+    return res.json({ message: 'No User Id Found!'})
+  }
   console.log("payload ", req.body)
   //save HS in db here....
   const score = await Scores.create({ user_id: req.session.userId, score: Number(req.body.score) })
