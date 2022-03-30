@@ -26,11 +26,6 @@ const corsOptions ={
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-app.engine('hbs', hbs.engine({ extname: 'hbs', defaultLayout: 'layout/main', layoutsDir: __dirname + '/views/' }));
-
 const sess = {
   secret: 'super-secret',
   cookie: {
@@ -48,7 +43,7 @@ app.use(session(sess))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(cors(corsOptions));
 
 app.use('/', indexRouter);

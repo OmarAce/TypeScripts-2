@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js ",
-    "seed": "node seeds/index.js"
+    "seed": "node seeds/index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "axios": "^0.24.0",
