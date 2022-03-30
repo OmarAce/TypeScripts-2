@@ -62,16 +62,16 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
     return (
 
         <div className="h-full  max-w-screen">
-        
+
             <div
-            
+
                 className="typing-test flex center"
                 onKeyDown={(e) => {
                     handleKey(e.key);
                     e.preventDefault();
                 }}
                 tabIndex={0}
-            >   
+            >
                 <pre>
                     {text.split("").map((char: string, index: number) => {
                         let state = charsState[index];
