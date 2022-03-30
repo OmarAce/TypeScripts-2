@@ -33,6 +33,7 @@ const Login = () => {
             console.log(response)
             if (response.status === 200) {
                 setLoginStatus("Registered Successfully");
+                Login({username, password})
             }
         })
     };

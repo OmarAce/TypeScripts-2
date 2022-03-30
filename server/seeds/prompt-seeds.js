@@ -42,7 +42,7 @@ const promptData = [
         language_id: 5, 
     },
     {
-        prompt: "Software and cathedrals are much the same — first we build them, then we pray.",
+        prompt: "Software and cathedrals are much the same - first we build them, then we pray.",
         language_id: 5, 
     },
     {
