@@ -7,6 +7,16 @@
   pointer-events: none;
 }
 
+.typing-test {
+  text-align: center;
+}
+
+pre {
+  display: inline-block;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
