@@ -7,7 +7,7 @@ const promptData = [
     },
     {
         prompt: "Typically an array contains zero to many objects of a single type. TypeScript has special analysis around arrays which contain multiple types, and where the oder in which they are index is important.\nconst failingResponse = ['Not Found', 404];",
-        language_id: 1, 
+        language_id: 1,
     },
     {
         prompt: `//input from the user\nconst min = parseInt(prompt("Enter a min value: "));\nconst max = parseInt(prompt("Enter a max value: "));\n\n// generating a random number\nconst a = Math.floor(Math.random() * (max - min + 1)) + min;\n\n// display a random number\nconsole.log('Random value between '+min+' and '+max+' is '+a);\n //Example Output\n Enter a min value: 1\nEnter a max value: 50\nRandom value between 1 and 50 is 47`,
@@ -23,7 +23,7 @@ const promptData = [
     },
     {
         prompt: "<h2>HTML Links</h2>\n<p>HTML links are defined with the a tag:</p>\n<a href='https://www.w3schools.com'>This is a link</a>",
-        language_id: 3, 
+        language_id: 3,
     },
     {
         prompt: "The selector points to the HTML element you want to style. The declaration block contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon. Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces.\np {\ncolor: red;\ntext-align: center;\n}",
@@ -31,7 +31,7 @@ const promptData = [
     },
     {
         prompt: "The universal selector uses the asterisk (i.e *) symbol for denoting the selector as a universal selector. It can be used to select all elements and apply a specific style.\n* {\nproperty: value;\n}",
-        language_id: 4, 
+        language_id: 4,
     },
     {
         prompt: "How many programmers does it take to change a light bulb? None, that's a hardware problem.",

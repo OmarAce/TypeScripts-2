@@ -3,6 +3,7 @@ import useTypingGame, {
     CharStateType,
     PhaseType
 } from "react-typing-game-hook";
+import Type from './type'
 import "./styles.css";
 import Results from './results'
 let Color = require('color');
@@ -59,6 +60,7 @@ const TypingGameDemo: FC<{ text: string }> = ({ text }) => {
     };
 
     return (
+
         <div className="h-full  max-w-screen">
         
             <div

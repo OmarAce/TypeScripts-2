@@ -27,6 +27,7 @@ const HighScore = () => {
     return (
         <div className="App">
         <Table data={highscores} column={column} />
+
         </div>
     )
 }
