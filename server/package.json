@@ -8,6 +8,7 @@
     "seed": "node seeds/index.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
