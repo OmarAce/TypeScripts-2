@@ -47,12 +47,12 @@ router.get('/api/highscores', async function (req, res) {
 // Method to Write to Highscores
 router.post("/highscores", async function (req, res) {
   console.log("YOUR SESSION", req.session);
-  if (!req.session.userId) {
+  if (!req.body.userId) {
     return res.json({ message: 'No User Id Found!'})
   } else
   console.log("payload ", req.body)
   //save HS in db here....
-  const score = await Scores.create({ user_id: req.session.userId, score: Number(req.body.score) })
+  const score = await Scores.create({ user_id: req.body.userId, score: Number(req.body.score) })
   //return some feedback to ajax on FE that made the call
   res.status(200).json({ message: 'Score Submitted!'})
 })
